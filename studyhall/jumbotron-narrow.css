@@ -5,9 +5,9 @@ HEADER BLUE: #416071
 */
 
 #loginn{
-	left:100px;
+	left:180px;
 	top:10px;
-	padding-left:960px;
+	padding-left:930px;
 	padding-top:10px;
 	color:white;
 }
@@ -264,7 +264,10 @@ h2{
 
 h3{
 	font-family:rockwell;
-	font-size:20pt;
+	font-size:14pt;
+	text-align:right;
+	border-bottom-style:dashed;
+	border-bottom-width:1px;
 	color:black;
 }
 
@@ -548,10 +551,10 @@ a:active {
 
 
 #locations{
-	width: 70%;
+	width: 73%;
 	float:right;
-	padding-left:16px;
-	top: 0px;
+	padding-left:10px;
+	top: 10px;
 	padding-right: 15px;
 	
 }
@@ -564,9 +567,9 @@ a:active {
 	padding-left:10px;
 	padding-top: 5px;
 	padding-right: 10px;
-	margin:20px;
+	margin:9px;
 	height: 170px;
-	width: 170px;
+	width: 160px;
 	border-radius:15px;
 	
 }
@@ -576,7 +579,7 @@ a:active {
 .locationssidebar {
   background-color:#93AA9c;
   width: 18%;
-  height: 220px;
+  height: 210px;
   margin-left:10px;
   padding:3px;
   margin-top:40px;
@@ -616,7 +619,7 @@ a:active {
 #locationsidebar {
   background-color:#93AA9c;
   width: 25%;
-  height: 300px;
+  height: 280px;
   margin-left:10px;
   padding:3px;
   float:left

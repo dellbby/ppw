@@ -37,7 +37,7 @@
       
       
             <h6> Q: My business is on your website, but I want it removed, how can I get it removed?</h6>
-      A: No problem, please <a href=contact.html>Contact us</a> and we will have it removed.
+      A: No problem, please <a href=contact.php>Contact us</a> and we will have it removed.
       <BR><BR>
       
         <h6> Q: How are your locations chosen?</h6>
@@ -53,7 +53,7 @@
       A: Yes! We are hoping to expand to all of the US, but do not have a time frame for this yet. 
       <BR><BR>
       
-      <h7> Is your question still unanswered? <a href=contact.html>Contact us!</a></h7>
+      <h7> Is your question still unanswered? <a href=contact.php>Contact us!</a></h7>
       
       
       

@@ -47,7 +47,7 @@ $echoText = '<div class="header clearfix">';
        
         
         <div class="logo">
-        <h3 class="text-muted"><a href=index.html><img src="images/logo.png"></a></h3>
+        <a href=index.html><img src="images/logo.png"></a>
       </div></div>';
 	  echo $echoText;
 ?>

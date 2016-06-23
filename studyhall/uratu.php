@@ -44,10 +44,42 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
             Uratu</b> is an Armenian owned cafe that has indoor and outdoor seating. Since it is Armenian owned, the location has Armenian coffee. Uratu also has printers and computers for the public to use! It's a mellow location with not much chatting where people can go do work. 
           
 <BR /><BR />
-[[RATING STARS GOES HERE]]
-
 <h4> Location Cons:</h4>
 -This locations parkinglot is only 90minutes free
+
+
+<BR /><BR /><BR /><BR /><BR /><BR /><BR /><BR /><BR />
+<h3>Add this location to your favorites
+
+<?php 
+
+
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['uratu'] == 1 ? true : false;
+			}
+		}
+	}
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=uratu"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=uratu"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
+
 
 </h8>
 <BR>

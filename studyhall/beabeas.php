@@ -39,12 +39,42 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
      
        <div id="lcontent">
 
- <img src="images/urartu/u1.jpg" width="496" height="371" align="left" style="PADDING-RIGHT: 6px">
+ <img src="images/beabeas/b3.jpg" width="496" height="371" align="left" style="PADDING-RIGHT: 6px">
              <h8>
  <b>           Bea Bea's</b> is mostly known for their breakfast menu. Most customers come in the mornings for customized pancakes. Since they are mostly known for their breakfast, they do close at 7pm which isn't ideal for students that want to study until late. This location does have a huge parkinglot since it is in the same location as convienence stores, so you never have to worry about parking.
           
 <BR /><BR />
-[[RATING STARS GOES HERE]]
+
+
+<BR /><BR /><BR /><BR /><BR /><BR /><BR />
+<h3>Add this location to your favorites
+<?php 
+
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['beabeas'] == 1 ? true : false;
+			}
+		}
+	}
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=beabeas"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=beabeas"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
 
 <h4> Location Cons:</h4>
 -This location closes at 7pm.
@@ -67,7 +97,7 @@ Burbank, CA 91505
 					Saturday - 9:00am - 7:00pm<br />
                     Sunday - 10:30am - 7:00pm
       <BR><BR>
-      <a href="http://www.urartucoffee.com/index.php" class="link1" target="_blank">Click here to view their website</a>
+      This location does not have a website
       
       
 
@@ -75,15 +105,15 @@ Burbank, CA 91505
 	<div id="gallerybox" class="gallery" align="center">
     	<h6>Gallery</h6>
         <div class="preview" align="center">
-	<img name="preview" src="images/urartu/u1.jpg" alt=""/>
+	<img name="preview" src="images/beabeas/b1.jpg" alt=""/>
 </div>
 
 
     <div class="thumbnails" align="center">
-	<img onmouseover="preview.src=u1.src" name="u1" src="images/urartu/u1.jpg" alt="" />
-	<img onmouseover="preview.src=u2.src" name="u2" src="images/urartu/u2.jpg" alt="" />
-    <img onmouseover="preview.src=u3.src" name="u3" src="images/urartu/u3.jpg" alt="" />
-    <img onmouseover="preview.src=u4.src" name="u4" src="images/urartu/u4.jpg" alt="" />
+	<img onmouseover="preview.src=b1.src" name="b1" src="images/beabeas/b1.jpg" alt="" />
+	<img onmouseover="preview.src=b2.src" name="b2" src="images/beabeas/b2.jpg" alt="" />
+    <img onmouseover="preview.src=b3.src" name="b3" src="images/beabeas/b3.jpg" alt="" />
+    <img onmouseover="preview.src=b4.src" name="b4" src="images/beabeas/b4.jpg" alt="" />
 
 </div></div> <!-- Close the gallery div -->
     

@@ -42,7 +42,38 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
  <img src="images/revo/revo5.png" align="left" style="PADDING-RIGHT: 6px">
             <h8> <b>Revo Cafe</b> is a small cafe located in Los Angeles, CA right next to Glendale. Great for group studying and crepe eating. They have monthly event with live music and great for art lovers! Location is great for big or small groups. Revo Cafe is owned by Harut and is best known for their Revo latte which was recently taken off the menu, but still being served. The cafe owner, Harut hopes to add more events in the summer. The cafe is decorated with art all around, from the art painted on the walls to the actual tables you can study on. The cafe has a "revolutionary" vibe and is highly free spirited. The owner is hoping to update the current menu and website. 
 <BR /><BR />
-[[RATING STARS GOES HERE]]
+<BR />
+<h3>Add this location to your favorites
+
+<?php 
+
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['revo'] == 1 ? true : false;
+			}
+		}
+	}
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=revo"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=revo"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
+    
+    </h3>
 
 </h8>
 <BR>

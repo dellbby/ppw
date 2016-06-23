@@ -50,7 +50,7 @@ $echoText = '<div class="header clearfix">';
        
         
         <div class="logo">
-        <h3 class="text-muted"><a href=index.html><img src="images/logo.png"></a></h3>
+        <a href=index.html><img src="images/logo.png"></a>
       </div></div>';
 	  echo $echoText;
 ?>
@@ -62,7 +62,7 @@ $echoText = '<div class="header clearfix">';
 
       <div id="contactbox">
       <h6> Need help? Check out our FAQ</h6>
-      We might have already answered your question in our <b><a href=faq.html>FAQ</a> </b>section,<BR> but if you can't find the answer, please fill out the contact form below.
+      We might have already answered your question in our <b><a href=faq.php>FAQ</a> </b>section,<BR> but if you can't find the answer, please fill out the contact form below.
       <BR><BR>
       
       
@@ -70,7 +70,7 @@ $echoText = '<div class="header clearfix">';
      <h6> Email: Info@thestudyhall.com<BR>
      Customer Service: (818) 123-3456<BR>
      Fax: (818) 344-4454</h6>
-     <img src="images/ig.png"> <img src="images/twitter.png"> <img src="images/fb.png"> <img src="images/tumblr.png">
+     <img src="images/ig.png"> <img src="images/twitter.png"> <img src="images/fb.png"> <a href=http://thestudyhallblog.tumblr.com/><img src="images/tumblr.png"></a>
      </div>
 
 <div id="form">

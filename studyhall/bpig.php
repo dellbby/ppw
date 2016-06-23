@@ -42,8 +42,39 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
  <img src="images/bpig/inside6.jpg" align="left" style="PADDING-RIGHT: 6px">
             <h8> <b>Bourgeois Pig</b> is a whole in the wall coffee shop in Los Angeles, its far from your average cafe. This cafe has its own dark cave that people go and do homework in or just relax. The cave is enchanted like and attracts most of their customers.  The cafe has a pool table as well as places to lounge. It's decorated with purple walls, velvet couches, and bronze trimmings. The location has 1 free wifi and another hour if you spend over $10.
             
-<BR /><BR />
-[[RATING STARS GOES HERE]]
+
+<BR /><BR /><BR /><BR /><BR /><BR /><BR /><BR /><BR />
+<h3>Add this location to your favorites
+
+<?php 
+
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['bpig'] == 1 ? true : false;
+			}
+		}
+	}
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=bpig"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=bpig"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
+
+
 
 </h8>
 <BR>

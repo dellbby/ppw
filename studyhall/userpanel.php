@@ -69,7 +69,85 @@ session_start();
 
 <div id="wrap">
         
-    <h3>Your Favorites</h3>
+    <h3>Your Favorites</h3><h8>
+    
+   		<?php
+		
+			function getDescription($param) {
+				$descrip = "";
+				switch($param) {
+					case "zephyrs":
+						$descrip = "<a href=zephs.php>Zephyrs</a>";
+						break;
+					case "revo":
+						$descrip = "<a href=revo.php>Revo Cafe</a>";
+						break;
+					case "simply":
+						$descrip = "<a href=simply.php>Simply Coffee</a>";
+						break;
+						
+					case "bpig":
+						$descrip = "<a href=bpig.php>Bourgeious Pig</a>";
+					
+						break;
+					
+					case "bns":
+						$descrip = "<a href=bandb.php>Bricks & Scones</a>";
+					
+						break;
+					case "prisgourmet":
+						$descrip = "<a href=priscillas.php>Priscillas</a>";
+					
+						break;
+					case "crave":
+						$descrip = "<a href=crave.php>Crave Cafe</a>";
+					
+						break;
+					case "uratu":
+						$descrip = "<a href=uratu.php>Uratu</a>";
+					
+						break;
+					case "aroma":
+					$descrip = "<a href=aroma.php>Aroma</a>";
+					
+						break;
+					case "beabeas":
+					$descrip = "<a href=beabeas.php>Bea Bea's</a>";
+					
+						break;
+					default: 
+						$descrip = "Contact admin for help. Error code [$param-01]";
+						break;
+				}
+				return $descrip;
+			}
+		
+			include 'db_connect.php';
+			
+			$username = $_SESSION["username"];
+			$query = "SELECT * FROM users WHERE username = '$username'";
+			$checks = array( "zephyrs", "revo", "simply", "bpig", "bns", "prisgourmet", "crave", "uratu", "aroma", "beabeas" );
+			
+			$result = mysql_query($query) or die(mysql_error());
+			if(mysql_num_rows($result) > 0) {
+				while($row = mysql_fetch_array($result)) {
+					for($i = 0; $i < sizeof($checks); $i++) {
+						$tag = $row[$checks[$i]];
+						if($tag == 1) {
+							echo getDescription($checks[$i]). "<br>";	
+						}
+					}
+				}
+			}
+		
+		
+		?>
+    
+    
+    
+    
+    
+ 
                    
                    <HR>
       </div>   <div id="clear"></div>

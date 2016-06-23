@@ -44,31 +44,37 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
             <h8> <b>Zephyr's</b> is located in Pasadena, CA and is a spaceous hookah lounge that has indoor and outdoor seating. Zephyr's can get loud at times because people come to smoke hookah and hang out, but it is known for many coming to do homework. Most customers bring headphones and focus while smoking hookah and drinking a latte.
 <BR /><BR />
 
+
+<BR /><BR /><BR /><BR /><BR /><BR /><BR />
+<h3>Add this location to your favorites
+
 <?php 
 
-include_once('db_connect.php');
-
-$favorited = false;
-if(isset($_SESSION['username'])) {
-	$username = $_SESSION['username'];
-	$query = "SELECT * FROM users WHERE username = '$username'";
-	$result = mysql_query($query) or die(mysql_error());
-	if(mysql_num_rows($result) > 0) {
-		while($row = mysql_fetch_array($result)) {
-			$favorited = $row['zephyrs'] == 1 ? true : false;
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['zephyrs'] == 1 ? true : false;
+			}
 		}
 	}
-}
-if(!$favorited): 
-?>
-
-<a href="UserHandler.php/?tag=zephyrs"><img src="images/fav.png" title="Click to Favorite" /></a>
-
-<?php else: ?>
-
-<a href="UserHandler.php/?tag=zephyrs"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
-
-<?php endif; ?>
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=zephyrs"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=zephyrs"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
 
 
 </h8>
@@ -91,7 +97,7 @@ Friday - Saturday 10:00 am - 2:00 am<br />
 Sunday - 10:00 am - 12:00 am
 
       <BR><BR>
-      <a href="http://www.revocafe.com" class="link1" target="_blank">Click here to view their website</a>
+      Website: This location does not have a website.
       
       
 

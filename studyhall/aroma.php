@@ -44,10 +44,45 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
             <b>Aroma Bar and Grill</b> is a resturant on Sunset Blvd., most customers go for the food, not necessarily to study. This location has it's own valet parking which could be convenient to some, but a hassle for others. It has indoor and outdoor seating and the lcoation is very spacious. They have a large variety of food and deserts to purchase.
           
 <BR /><BR />
-[[RATING STARS GOES HERE]]
+
 
 <h4> Location Cons:</h4>
 - This location can get loud at times
+<BR />
+<BR /><BR /><BR /><BR /><BR /><BR /><BR />
+<h3>Add this location to your favorites
+
+<?php 
+
+	
+	include_once('db_connect.php');
+	
+	$username = "";
+	$favorited = false;
+	if(isset($_SESSION['username'])) {
+		$username = $_SESSION['username'];
+		$query = "SELECT * FROM users WHERE username = '$username'";
+		$result = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($result) > 0) {
+			while($row = mysql_fetch_array($result)) {
+				$favorited = $row['aroma'] == 1 ? true : false;
+			}
+		}
+	}
+	if(!$favorited && $username != ""): 
+	?>
+	
+	<a href="UserHandler.php/?tag=aroma"><img src="images/fav.png" title="Click to Favorite" /></a>
+	
+	<?php else: ?>
+	
+	<a href="UserHandler.php/?tag=aroma"><img src="images/unfav.png" title="Click to UnFavorite" /></a>
+	
+	<?php endif; ?>
+    
+    </h3>
+
+
 
 </h8>
 <BR>

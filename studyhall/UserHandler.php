@@ -30,6 +30,34 @@ if(isset($_GET['tag'])) {
 			case "zephyrs":
 				header("location: /StudyHall/zephs.php");
 			break;	
+			case "aroma":
+				header("location: /StudyHall/aroma.php");
+			break;	
+				case "revo":
+				header("location: /StudyHall/revo.php");
+			break;	
+				case "simply":
+				header("location: /StudyHall/simply.php");
+			break;	
+			case "uratu":
+				header("location: /StudyHall/uratu.php");
+			break;
+			case "bns":
+				header("location: /StudyHall/bandb.php");
+			break;		
+			case "prisgourmet":
+				header("location: /StudyHall/priscillas.php");
+			break;	
+			case "crave":
+				header("location: /StudyHall/crave.php");
+			break;	
+			case "beabeas":
+				header("location: /StudyHall/beabeas.php");
+			break;	
+			case "bpig":
+				header("location: /StudyHall/bpig.php");
+			break;	
+			
 			}
 		}
 	}

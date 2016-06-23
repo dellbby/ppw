@@ -94,7 +94,7 @@
             <div id="clear"></div>
             <BR><BR>
             <div class="link1">
-            <a href=locations.html>Click here for all Locations >> </a></div>
+            <a href=locations.php>Click here for all Locations >> </a></div>
             <BR>
             <hr>
             <BR><BR>

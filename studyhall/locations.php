@@ -18,16 +18,16 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
                     array_push($array, $value);
                     break;
 					
-				case "dellia is amazing": //<  - delete lol 
+				case "amazing": 
 					echo "yes";
 					break; 
             }
             return $array;
         }
 		  function getQueryForCheck($value) {
-            $queryPrefix = " AND ";// to add checks in query we need AND so this is the prefix to the string were adding to the query
-            $queryRoot = "";// this is the root and this only gets set if the variables check out
-            $querySuffix = " = 1"; //this is the suffix =1 meaning its set to true in the db
+            $queryPrefix = " AND ";
+            $queryRoot = "";
+            $querySuffix = " = 1"; 
             switch($value) {
                 case "wifi":
                 case "outdoor";
@@ -41,19 +41,19 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
                     break;
                 default:
                     $queryPrefix = "";
-                    $querySuffix = "";//if  the variable checks out we make the prefix/suffix blank so we dont get invalid values
+                    $querySuffix = "";
                     break;
             }
-            return $queryPrefix . $queryRoot . $querySuffix; //do u understand what this method does
+            return $queryPrefix . $queryRoot . $querySuffix; 
         }
    
-        if(isset($_POST['search'])) {
-            $search = $_POST['search'];
+        if(isset($_POST['searchvalue'])) {
+            $searchvalue = $_POST['searchvalue'];
         }
-        $checkListArray = array(); //Empty array so we can add checkbox'd items
+        $checkListArray = array(); 
         if(!empty($_POST['checkList'])) {
-            $array = $_POST['checkList'];//Pulls the array of checkbox'd items and assigns it to a second array variable
-            foreach($array as $value) {//Loops through all $array items and adds it to our empty array($checkListArray)
+            $array = $_POST['checkList'];
+            foreach($array as $value) {
                 $checkListArray = addItemToArray($checkListArray, $value);
             }
         }
@@ -85,7 +85,7 @@ $dbh = new PDO('mysql:host=localhost;dbname=studyhall;port=8889', $user, $pass);
   </head>
 
   <body>
-    <div class="container">
+    <div class="container"><BR>
       
 <?php
 session_start();
@@ -113,7 +113,7 @@ $echoText = '<div class="header clearfix">';
        
         
         <div class="logo">
-        <h3 class="text-muted"><a href=index.html><img src="images/logo.png"></a></h3>
+        <a href=index.html><img src="images/logo.png"></a>
       </div></div>';
 	  echo $echoText;
 ?>
@@ -153,14 +153,14 @@ $echoText = '<div class="header clearfix">';
 
 <div id ="locations">
 					<?php
-					
-					//use pdo object to prepare a select statement
 					$searchvalue = mysql_real_escape_string($searchvalue);
 					
 					$result = "SELECT * FROM location WHERE name LIKE '%$searchvalue%'";
+					
                 	if(!empty($checkListArray)) {
-                    	foreach($checkListArray as $arrayItem) {//Loops through all our checkListArray items and concatenates w/ our query
-                        	$result .= getQueryForCheck($arrayItem);//ok i need to make some more tingz like wat? like clean do  alull l of the checkboxes work or only coffee sec
+                    	foreach($checkListArray as $arrayItem) {
+							
+                        	$result .= getQueryForCheck($arrayItem);
 							
                     	}
                 	} 
@@ -185,10 +185,10 @@ $echoText = '<div class="header clearfix">';
 						$markup .= ''.$row['state'].' ';
 						$markup .= ''.$row['zip'].'<BR> ';
 						$markup .= ''.$row['phone'].'<BR> Type: ';
-						$markup .= ''.$row['type'].'<br><HR><BR><center>Rating: ';
+						$markup .= ''.$row['type'].'<br><HR><center>Rating: ';
 						$markup .= ''.$row['rating'].'</center>';
 						$markup .= '</div>';
-						$markup .= '<div id="blah2"/>';
+						$markup .= '';
 						
 						echo $markup;
 					} //end row for loop
